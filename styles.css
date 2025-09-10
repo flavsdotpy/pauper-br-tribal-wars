@@ -321,6 +321,13 @@ footer {
     font-size: 0.9rem;
 }
 
+.copyright a {
+    color: #999;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
