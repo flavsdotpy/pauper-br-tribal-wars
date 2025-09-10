@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    background-image: url("assets/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #ffd700;
+}
+
+/* Main Content */
+main {
+    padding: 3rem 0;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.content-section h2 {
+    color: #1a1a2e;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h3 {
+    color: #16213e;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.4rem;
+}
+
+.content-section h3.tribe-rules {
+    color: #16213e;
+}
+
+.content-section h3.exclusion-rules {
+    color: #16213e;
+}
+
+.tribe-rules + .rules-list li {
+    border-left: 4px solid #00b894;
+}
+
+.exclusion-rules + .rules-list li {
+    border-left: 4px solid #d63031;
+}
+
+.rules-list a {
+    color: #007bff;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.rules-list a:hover {
+    border-bottom: 1px solid #007bff;
+}
+
+/* Card hover tooltips */
+.rules-list a[data-card-image] {
+    position: relative;
+}
+
+.rules-list a[data-card-image]:hover::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 420px;
+    background-image: var(--card-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    pointer-events: none;
+    border: 2px solid #fff;
+}
+
+.rules-list a[data-card-image]:hover::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    pointer-events: none;
+}
+
+.rules-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.rules-list li {
+    background: #f8f9fa;
+    margin: 0.8rem 0;
+    padding: 1rem;
+    border-left: 4px solid #ffd700;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.banned-cards {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.banned-cards h3 {
+    color: #d63031;
+    margin-top: 0;
+}
+
+.banned-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.banned-item {
+    background: #ffe0e0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #d63031;
+}
+
+/* Banned Cards Gallery */
+.banned-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1rem;
+}
+
+.card-item {
+    text-align: center;
+    background: transparent;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    max-width: 140px;
+}
+
+.card-name {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+    word-wrap: break-word;
+    line-height: 1.2;
+    margin-top: 0.5rem;
+}
+
+.card-item.text-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    background: transparent;
+}
+
+.card-item.text-only .card-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: #d63031;
+}
+
+.price-limit {
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.price-limit h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-limit p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    background: #1a1a2e;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+}
+
+.copyright {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banned-list {
+        grid-template-columns: 1fr;
+    }
+
+    .banned-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .card-name {
+        font-size: 0.7rem;
+    }
+}
